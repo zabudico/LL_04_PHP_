@@ -37,7 +37,6 @@
 
 ## Поток обработки запроса
 
-```mermaid
 sequenceDiagram
     participant Client as Браузер
     participant Router as Роутер
@@ -52,7 +51,9 @@ sequenceDiagram
     Controller->>View: Подготовка данных
     View->>Controller: Готовый HTML
     Controller->>Client: HTTP Response
+    
 Ключевые компоненты
+
 Роутинг
 Чистый PHP без .htaccess перезаписей
 
@@ -60,10 +61,14 @@ sequenceDiagram
 
 Поддержка методов:
 
-php
-Copy
+```php
+
 if ($method === 'GET' && $uri === '/') { ... }
+
+```
+
 Валидация
+
 4 уровня проверок:
 
 CSRF-токен
@@ -77,21 +82,30 @@ CSRF-токен
 Безопасность
 Защита от XSS:
 
-php
-Copy
+```php
+
 htmlspecialchars($task['title'], ENT_QUOTES)
+
+```
+
 CSRF-токены для форм:
 
-php
-Copy
+```php
+
 <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+
+```
+
 Фильтрация поискового запроса:
 
-php
-Copy
+```php
+
 $query = strtolower(trim($_GET['search']))
+
+```
+
 Взаимодействие компонентов
-Copy
+
    Frontend (HTML/JS)          Backend (PHP)
 ┌───────────────────┐       ┌───────────────────┐
 │ Форма создания    │       │ TaskController    │
@@ -105,7 +119,7 @@ Copy
                             │ → read/write JSON │
                             └───────────────────┘
 Особенности реализации
-Stateless-хранилище: Нет постоянного подключения к БД
+Stateless-хранилище: использование файла для хранения данных (.json)
 
 Автономный роутинг: Не требует mod_rewrite
 
@@ -123,10 +137,14 @@ GET - получение данных (поиск, пагинация)
 POST - изменение данных (создание/удаление)
 
 2. Валидация vs Фильтрация
+   
 Валидация	Фильтрация
 Проверка формата данных	Очистка данных
 Пример: проверка email	Пример: удаление тегов
+
+
 3. PHP-функции фильтрации
+   
 trim() - обрезка пробелов
 
 htmlspecialchars() - экранирование HTML
@@ -134,4 +152,4 @@ htmlspecialchars() - экранирование HTML
 filter_var($email, FILTER_VALIDATE_EMAIL) - валидация email
 
 json_decode() - парсинг JSON
-```
+
