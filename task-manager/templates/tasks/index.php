@@ -1,19 +1,16 @@
-<!-- Последние 2 задачи -->
-<?php if (!empty($latestTasks)): ?>
-    <h2>Последние задачи</h2>
-    <div class="latest-tasks">
-        <?php foreach ($latestTasks as $task): ?>
-            <div class="task-card">
-                <h3><?= htmlspecialchars($task['title']) ?></h3>
-                <div class="meta">
-                    <span class="category"><?= $task['category'] ?></span>
-                    <span class="date"><?= date('d.m.Y H:i', strtotime($task['created_at'])) ?></span>
-                </div>
-            </div>
-        <?php endforeach; ?>
+<form method="GET" action="/" class="search-form">
+    <div class="form-group">
+        <input type="text" name="search" placeholder="Поиск по названию или описанию"
+            value="<?= htmlspecialchars($searchQuery ?? '') ?>">
+        <button type="submit" class="btn btn-primary">Найти</button>
+    </div>
+</form>
+
+<?php if (empty($tasks) && !empty($searchQuery)): ?>
+    <div class="no-results">
+        По запросу "<?= htmlspecialchars($searchQuery) ?>" ничего не найдено.
     </div>
 <?php endif; ?>
-
 
 <div class="task-list">
     <?php foreach ($tasks as $task): ?>
@@ -25,7 +22,10 @@
                 </span>
                 <span class="date"><?= date('d.m.Y H:i', strtotime($task['created_at'])) ?></span>
             </div>
-            <a href="/tasks/<?= $task['id'] ?>" class="btn">Подробнее</a>
+            <div class="description">
+                <?= htmlspecialchars(substr($task['description'], 0, 100)) . '...' ?>
+            </div>
+            <a href="/tasks/<?= $task['id'] ?>" class="btn btn-primary">Подробнее</a>
         </div>
     <?php endforeach; ?>
 </div>
@@ -33,7 +33,7 @@
 <?php if ($totalPages > 1): ?>
     <div class="pagination">
         <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-            <a href="/?page=<?= $i ?>" class="<?= $i == $currentPage ? 'active' : '' ?>">
+            <a href="/?page=<?= $i ?>&search=<?= urlencode($searchQuery) ?>" class="<?= $i == $currentPage ? 'active' : '' ?>">
                 <?= $i ?>
             </a>
         <?php endfor; ?>

@@ -1,1 +1,76 @@
-[]
+[
+    {
+        "id": "67e9961e4d2c9",
+        "title": "Work",
+        "category": "work",
+        "description": "qwertyurerweeq",
+        "steps": [
+            "qwree",
+            "qwerrt",
+            "qwertrerwq"
+        ],
+        "created_at": "2025-03-30 19:06:06"
+    },
+    {
+        "id": "67e996ba14079",
+        "title": "ghjh",
+        "category": "personal",
+        "description": "wqEARTSHGFASDCFHVHNGEAWRS",
+        "steps": [
+            "ERAFRGRESW",
+            "EWRA"
+        ],
+        "created_at": "2025-03-30 19:08:42"
+    },
+    {
+        "id": "67e996c322874",
+        "title": "qwezfgxng",
+        "category": "personal",
+        "description": "wdewfryuiok';lkjhgfdsdA",
+        "steps": [
+            "ddAEWE",
+            "EQW"
+        ],
+        "created_at": "2025-03-30 19:08:51"
+    },
+    {
+        "id": "67e9978a1a90e",
+        "title": "неквывапрш",
+        "category": "personal",
+        "description": "щшгнекуфапролджэхзщшгнасмит",
+        "steps": [
+            "876уыапр"
+        ],
+        "created_at": "2025-03-30 19:12:10"
+    },
+    {
+        "id": "67e997a44931c",
+        "title": "йцукенгшщзх",
+        "category": "personal",
+        "description": "н76кваспмррнг89з76кесаппр",
+        "steps": [
+            "998ргшщ0-876екгошщ"
+        ],
+        "created_at": "2025-03-30 19:12:36"
+    },
+    {
+        "id": "67e999fd00efb",
+        "title": "жщшгнавсми",
+        "category": "personal",
+        "description": "шнекпрш876квмиолшгнеами",
+        "steps": [
+            "шычсмрош876кчсмиолщ987еас"
+        ],
+        "created_at": "2025-03-30 19:22:37"
+    },
+    {
+        "id": "67e99b45b19a1",
+        "title": "yfvbhjk",
+        "category": "personal",
+        "description": "ewsdfghjkl;poiuytfvb",
+        "steps": [
+            "itrsxcvjklp[09ytfdcvbnko987tc"
+        ],
+        "created_at": "2025-03-30 19:28:05"
+    }
+]

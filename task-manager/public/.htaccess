@@ -1,8 +1,9 @@
+
 RewriteEngine On
 
-# Запрет доступа к служебным папкам
-RewriteRule ^data/ - [F,L]
+# Блокировка доступа к служебным папкам
 RewriteRule ^src/ - [F,L]
+RewriteRule ^storage/ - [F,L]
 
 # Перенаправление всех запросов на index.php
 RewriteCond %{REQUEST_FILENAME} !-f

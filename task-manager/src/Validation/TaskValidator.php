@@ -3,14 +3,23 @@ namespace App\Validation;
 
 use App\Models\Task;
 
+/**
+ * Валидатор для задач.
+ */
 class TaskValidator
 {
-    private $errors = [];
+    private array $errors = [];
 
+    /**
+     * Проверяет данные задачи.
+     * @param array $data Данные формы
+     * @return bool
+     */
     public function validate(array $data): bool
     {
         $this->validateTitle($data['title'] ?? '');
         $this->validateCategory($data['category'] ?? '');
+        $this->validateDescription($data['description'] ?? '');
         $this->validateSteps($data['steps'] ?? []);
         return empty($this->errors);
     }
@@ -23,12 +32,10 @@ class TaskValidator
             return;
         }
 
-        // Замена mb_strlen() на strlen() (для работы без расширения mbstring)
         if (strlen($title) < 3) {
             $this->errors['title'] = 'Минимум 3 символа';
         }
 
-        // Замена mb_strtolower() на strtolower()
         foreach (Task::all() as $task) {
             if (strtolower($task['title']) === strtolower($title)) {
                 $this->errors['title'] = 'Задача с таким названием уже существует';
@@ -44,22 +51,28 @@ class TaskValidator
         }
     }
 
+    private function validateDescription(string $description): void
+    {
+        $description = trim($description);
+        if (empty($description)) {
+            $this->errors['description'] = 'Описание обязательно';
+        } elseif (strlen($description) < 10) {
+            $this->errors['description'] = 'Минимум 10 символов';
+        }
+    }
+
     private function validateSteps(array $steps): void
     {
         $steps = array_filter($steps);
         if (empty($steps)) {
             $this->errors['steps'] = 'Добавьте хотя бы один шаг';
-            return;
-        }
-
-        foreach ($steps as $step) {
-            if (trim($step) === '') {
-                $this->errors['steps'] = 'Шаги не могут быть пустыми';
-                break;
-            }
         }
     }
 
+    /**
+     * Возвращает ошибки валидации.
+     * @return array
+     */
     public function getErrors(): array
     {
         return $this->errors;

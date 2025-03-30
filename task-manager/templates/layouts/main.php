@@ -21,6 +21,7 @@
             <h1>Task Manager</h1>
             <nav>
                 <a href="/" class="btn">Главная</a>
+                <a href="/latest" class="btn">Последние задачи</a>
                 <a href="/tasks/create" class="btn">Создать задачу</a>
             </nav>
         </header>
@@ -30,6 +31,10 @@
         </main>
     </div>
     <script src="/js/script.js"></script>
+
+
+
+
 </body>
 
 </html>

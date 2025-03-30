@@ -12,10 +12,22 @@
 
     <div class="form-group">
         <label>Категория:</label>
-        <select name="category">
+        <select name="category" class="<?= isset($errors['category']) ? 'error' : '' ?>">
             <option value="work" <?= ($old['category'] ?? '') === 'work' ? 'selected' : '' ?>>Работа</option>
             <option value="personal" <?= ($old['category'] ?? '') === 'personal' ? 'selected' : '' ?>>Личное</option>
         </select>
+        <?php if (isset($errors['category'])): ?>
+            <span class="error-message"><?= $errors['category'] ?></span>
+        <?php endif; ?>
+    </div>
+
+    <div class="form-group">
+        <label>Описание:</label>
+        <textarea name="description" class="<?= isset($errors['description']) ? 'error' : '' ?>"
+            rows="4"><?= htmlspecialchars($old['description'] ?? '') ?></textarea>
+        <?php if (isset($errors['description'])): ?>
+            <span class="error-message"><?= $errors['description'] ?></span>
+        <?php endif; ?>
     </div>
 
     <div class="form-group">
@@ -26,15 +38,11 @@
                     class="<?= isset($errors['steps']) ? 'error' : '' ?>">
             <?php endforeach; ?>
         </div>
-        <button type="button" data-add-step class="btn">Добавить шаг</button>
+        <button type="button" data-add-step class="btn btn-primary">Добавить шаг</button>
         <?php if (isset($errors['steps'])): ?>
             <span class="error-message"><?= $errors['steps'] ?></span>
         <?php endif; ?>
     </div>
 
-    <button type="submit" class="btn">Создать задачу</button>
+    <button type="submit" class="btn btn-primary">Создать задачу</button>
 </form>
-
-<?php if (isset($errors['title'])): ?>
-    <div class="error-message"><?= $errors['title'] ?></div>
-<?php endif; ?>

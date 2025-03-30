@@ -7,6 +7,10 @@
         <span class="date"><?= date('d.m.Y H:i', strtotime($task['created_at'])) ?></span>
     </div>
 
+    <div class="description">
+        <?= nl2br(htmlspecialchars($task['description'])) ?>
+    </div>
+
     <div class="steps">
         <?php foreach ($task['steps'] as $index => $step): ?>
             <div class="step"><?= ($index + 1) ?>. <?= htmlspecialchars($step) ?></div>
@@ -15,6 +19,6 @@
 
     <form method="POST" action="/tasks/<?= $task['id'] ?>/delete">
         <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
-        <button type="submit" class="btn danger" data-delete-task>Удалить задачу</button>
+        <button type="submit" class="btn btn-danger" data-delete-task>Удалить задачу</button>
     </form>
 </div>

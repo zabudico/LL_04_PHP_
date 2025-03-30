@@ -1,7 +1,12 @@
 <?php
+
+
+session_start();
+
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-session_start();
+
 
 require_once __DIR__ . '/../src/Controllers/TaskController.php';
 require_once __DIR__ . '/../src/Models/Task.php';
@@ -12,8 +17,11 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $method = $_SERVER['REQUEST_METHOD'];
 
 try {
+    // Маршрутизация
     if ($method === 'GET' && $uri === '/') {
         (new App\Controllers\TaskController())->index();
+    } elseif ($method === 'GET' && $uri === '/latest') {
+        (new App\Controllers\TaskController())->latest();
     } elseif ($method === 'GET' && $uri === '/tasks/create') {
         (new App\Controllers\TaskController())->create();
     } elseif ($method === 'POST' && $uri === '/tasks/store') {
@@ -29,5 +37,5 @@ try {
 } catch (Throwable $e) {
     error_log($e->getMessage());
     http_response_code(500);
-    echo 'Произошла внутренняя ошибка сервера: ' . $e->getMessage();
+    echo 'Ошибка: ' . htmlspecialchars($e->getMessage());
 }
