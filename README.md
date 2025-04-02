@@ -147,6 +147,7 @@ chmod 664 data/tasks.json
   - CSS: адаптивная верстка с Grid/Flexbox
   - JavaScript: базовая интерактивность
  
+    Пример работы приложения (просмотр, создание, удаление задач и т.д.)
     ![image](https://github.com/user-attachments/assets/959865b4-6f23-4174-8904-6a40f830c3a8)
 
     ![image](https://github.com/user-attachments/assets/0ca0d5f0-9b4e-4075-a419-68dd51f27560)
