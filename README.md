@@ -146,6 +146,29 @@ chmod 664 data/tasks.json
 - **Фронтенд**
   - CSS: адаптивная верстка с Grid/Flexbox
   - JavaScript: базовая интерактивность
+ 
+    ![image](https://github.com/user-attachments/assets/959865b4-6f23-4174-8904-6a40f830c3a8)
+
+    ![image](https://github.com/user-attachments/assets/0ca0d5f0-9b4e-4075-a419-68dd51f27560)
+
+    ![image](https://github.com/user-attachments/assets/3c60582c-608c-4bb5-9b68-972a47b4d308)
+
+    ![image](https://github.com/user-attachments/assets/368c85f0-6f90-4881-8eaf-2eb1144b8cb9)
+
+    ![image](https://github.com/user-attachments/assets/b8495ef6-1122-4927-9c3a-7af4e7c1d019)
+
+    ![image](https://github.com/user-attachments/assets/2f6f1aa0-6ecf-4e34-a021-3c91532d93fb)
+
+    ![image](https://github.com/user-attachments/assets/d012b59e-03ae-447f-b9cb-6654e7f6eee9)
+
+    ![image](https://github.com/user-attachments/assets/124076c9-9ac8-4ea1-8949-ad8d1ad58e2c)
+
+    ![image](https://github.com/user-attachments/assets/0c3cf34b-711d-4374-98ca-5eb0705a4000)
+
+    ![image](https://github.com/user-attachments/assets/ad190110-e8bd-4e7a-9746-44600b3df956)
+
+    ![image](https://github.com/user-attachments/assets/cc5ef503-b4d2-4b0e-ae3e-457998d8cd8a)
+
 
 ### 2. Application Layer (Controller)
 
@@ -271,7 +294,6 @@ Stateless-хранилище: использование файла для хр�
 | **Примеры**        | Проверка email, длины пароля           | Удаление тегов, обрезка пробелов       |
 | **Когда применять**| Перед сохранением данных               | Перед обработкой/отображением данных   |
 
----
 
 3. PHP-функции фильтрации
    
