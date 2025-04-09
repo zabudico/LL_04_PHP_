@@ -53,9 +53,11 @@ php -S localhost:8000 -t public/
         Require all granted
     </Directory>
 </VirtualHost>
+```
+
 Вариант 3: Nginx
-nginx
-Copy
+```nginx
+
 server {
     listen 80;
     server_name task-manager.local;
@@ -71,8 +73,8 @@ server {
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
     }
 }
-
 ```
+
 Учтите, что при настройке в данном способе , нужно учитывать номер порта.
 
 ### Настройка прав доступа
@@ -82,6 +84,7 @@ chown -R www-data:www-data data/  # Для Apache
 ```
 
 ### Проверка установки
+
 Откройте в браузере: http://task-manager.local
 
 Попробуйте:
@@ -94,6 +97,7 @@ chown -R www-data:www-data data/  # Для Apache
 
 ### Устранение неполадок
 Ошибка записи в файл tasks.json
+
 ```bash
 
 # Проверьте права:
@@ -236,6 +240,7 @@ CSRF-токен
 Уникальность названия задачи
 
 Безопасность
+
 Защита от XSS:
 
 ```php
